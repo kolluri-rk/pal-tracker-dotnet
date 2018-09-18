@@ -1,0 +1,7 @@
+applications:
+- name: pal-tracker
+  path: src/PalTracker/bin/Release/netcoreapp2.1/publish/
+  routes:
+  - route: rk-pal-tracker-review.apps.pcfone.io
+  env:
+    WELCOME_MESSAGE: Hello from the review environment

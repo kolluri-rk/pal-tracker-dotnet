@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: 'microsoft/dotnet:2-sdk'
+      - image: 'microsoft/dotnet:2.1-sdk'
         environment:
           DEBIAN_FRONTEND: "noninteractive"
     steps:
@@ -22,7 +22,7 @@ jobs:
 
   deployToReview:
     docker:
-      - image: 'microsoft/dotnet:2-sdk'
+      - image: 'microsoft/dotnet:2.1-sdk'
         environment:
           DEBIAN_FRONTEND: "noninteractive"
           EXTRACT_DEST: /tmp/extracted-archive
@@ -56,7 +56,7 @@ jobs:
 
   deployToProd:
     docker:
-      - image: 'microsoft/dotnet:2-sdk'
+      - image: 'microsoft/dotnet:2.1-sdk'
         environment:
           DEBIAN_FRONTEND: "noninteractive"
           EXTRACT_DEST: /tmp/extracted-archive

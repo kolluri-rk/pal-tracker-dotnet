@@ -20,7 +20,7 @@ echo "sshing to app $1"
 
 
 echo "Opening ssh tunnel to $ip_address using app $1"
-cf ssh -N -L 63306:$ip_address:3306 $1 & || true
+true || cf ssh -N -L 63306:$ip_address:3306 $1 &
 cf ssh -N -L 63306:$ip_address:3306 $1 &
 cf_ssh_pid=$!
 

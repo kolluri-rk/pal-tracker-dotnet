@@ -17,9 +17,10 @@ echo "chek ssh enabled on app $1"
 cf ssh-enabled $1
 
 echo "sshing to app $1"
-cf ssh $1 
+
 
 echo "Opening ssh tunnel to $ip_address using app $1"
+cf ssh -N -L 63306:$ip_address:3306 $1 & || true
 cf ssh -N -L 63306:$ip_address:3306 $1 &
 cf_ssh_pid=$!
 

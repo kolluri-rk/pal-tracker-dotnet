@@ -10,6 +10,12 @@ db_name=`echo $credentials | jq -r '.name'`
 db_username=`echo $credentials | jq -r '.username'`
 db_password=`echo $credentials | jq -r '.password'`
 
+echo "chek ssh enabled on spcace review"
+cf space-ssh-allowed review
+
+echo "chek ssh enabled on app $1"
+cf ssh-enabled $1
+
 echo "sshing to app $1"
 cf ssh $1 
 

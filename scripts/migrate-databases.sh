@@ -11,8 +11,7 @@ db_username=`echo $credentials | jq -r '.username'`
 db_password=`echo $credentials | jq -r '.password'`
 
 echo "sshing to app $1"
-cf ssh $1 &
-exit
+cf ssh $1 
 
 echo "Opening ssh tunnel to $ip_address using app $1"
 cf ssh -N -L 63306:$ip_address:3306 $1 &

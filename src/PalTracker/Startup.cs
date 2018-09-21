@@ -58,6 +58,11 @@ namespace PalTracker
             services.AddDbContext<TimeEntryContext>(options => options.UseMySql(Configuration));
 
             services.AddCloudFoundryActuators(Configuration);
+
+            // changed this registartion from singleton to scoped, as this is accessing ITimeEntryRepository which is scoped
+            services.AddScoped<IHealthContributor, TimeEntryHealthContributor>();
+            services.AddSingleton<IOperationCounter<TimeEntry>, OperationCounter<TimeEntry>>();
+            services.AddSingleton<IInfoContributor, TimeEntryInfoContributor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

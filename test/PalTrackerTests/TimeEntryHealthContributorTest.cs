@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Net.Http;
+using System.Collections.Generic;
 using System.Linq;
 using Moq;
 using PalTracker;
 using Xunit;
 using static PalTracker.TimeEntryHealthContributor;
-using static Steeltoe.Common.HealthChecks.HealthStatus;
+//using static Steeltoe.Management.Endpoint.Health.HealthStatus;
+using static Steeltoe.Management.Endpoint.Health.HealthStatus;
 
 namespace PalTrackerTests
 {
@@ -15,8 +18,10 @@ namespace PalTrackerTests
 
         public TimeEntryHealthContributorTest()
         {
+            // set this only for local testing
+            //Environment.SetEnvironmentVariable("DISABLE_AUTH", "true");
             _repository = new Mock<ITimeEntryRepository>();
-            _contributor = new TimeEntryHealthContributor(_repository.Object);
+            _contributor = new TimeEntryHealthContributor(_repository.Object);  
         }
 
         [Fact]

@@ -13,6 +13,8 @@ namespace PalTrackerTests
 
         public ManagementIntegrationTest()
         {
+            // set this only for local testing
+            Environment.SetEnvironmentVariable("DISABLE_AUTH", "true");
             Environment.SetEnvironmentVariable("MYSQL__CLIENT__CONNECTIONSTRING", DbTestSupport.TestDbConnectionString);
             DbTestSupport.ExecuteSql("TRUNCATE TABLE time_entries");
             _testClient = IntegrationTestServer.Start().CreateClient();

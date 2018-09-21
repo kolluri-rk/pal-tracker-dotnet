@@ -5,4 +5,4 @@ applications:
   - route: rk-pal-tracker.apps.pcfone.io
   env:
     WELCOME_MESSAGE: Hello from the production environment
-    DISABLE_AUTH: true
+    DISABLE_AUTH: false

@@ -5,4 +5,4 @@ applications:
   - route: rk-pal-tracker-review.apps.pcfone.io
   env:
     WELCOME_MESSAGE: Hello from the review environment
-    DISABLE_AUTH: false
+    DISABLE_AUTH: true
